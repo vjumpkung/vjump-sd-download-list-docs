@@ -1,15 +1,11 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
+  "index": "Home",
+  "comfy": "คู่มือการใช้งาน ComfyUI Colab",
+  "others": "คู่มืออื่นๆ",
   "contact": {
     "title": "Contact ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "https://discord.com/users/250567674504019968",
     "newWindow": true
   }
 }

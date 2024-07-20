@@ -1,0 +1,136 @@
+# คู่มือการใช้งาน ComfyUI Colab
+
+## Link เข้าใช้งาน vjumpkung ComfyUI Colab
+
+[vjumpkung ComfyUI Colab](https://colab.research.google.com/github/vjumpkung/vjump-sd-webui-colab/blob/main/vjumpkung_comfyui_colab.ipynb)
+
+## Features
+
+- Save รูป ไว้ที่ Google Drive ทุกรูปที่ได้เจนภาพขึ้นมา ไว้ที่ folder ComfyUIOutput ใน Google Drive
+- มี ComfyUI Manager ในการจัดการ Custom Node เพื่อความสะดวกในการติดตั้ง custom node ที่สะดวกสะบายมากขึ้น
+- รองรับการ download model จาก civitai รวมถึง model ที่ต้องการ login และ huggingface
+- มีเว็บไซต์สำหรับแหล่งรวม model ต่างๆ เพื่อจะได้ download model ทั้งหมดภายใน link เดียว
+
+## คลิปสอนใช้งาน vjumpkung ComfyUI Colab
+
+- Coming Soon
+
+
+## สิ่งที่ต้องการ
+
+- Google Account (Gmail) + Google Drive
+- Colab Pro หรือ Pay As You Go [Link Colab Pro](https://colab.research.google.com/signup?utm_source=resource_tab&utm_medium=link&utm_campaign=want_more_resources)
+- **(ไม่บังคับ)** CivitAI API Key (สำหรับ Download Model ที่ต้องมีการ Login)
+
+## 1. ติดตั้ง ComfyUI
+
+![](/comfy_sec_1.png)
+
+- การตั้งค่าของส่วนนี้มี options ดังต่อไปนี้
+  - Save Model ไว้ที่ Google Drive เป็นการ save ตัวโปรแกรมรวมทั้ง model ทั้งหมดที่ได้ download
+  - Update ComfyUI จะเป็นตัวเลือกให้ทำการ Update ComfyUI ให้เป็น version ล่าสุด (จะใช้งานได้ต่อเมื่อ SAVE_MODEL_IN_GOOGLE_DRIVE มีการ ✅ เอาไว้)
+  - ช่องกรอก DOWNLOAD_LIST_URL จะให้กรอก link ที่ได้รวมการ download model ต่างๆ จาก CivitAI หรือ Huggingface เอาไว้ ซึ่งหา link ได้จาก [SD Download List Website](https://vjump-sd-download-list.vjumpkung.dynv6.net/download_list/)
+  - CivitAI API Keys กรอก code จุดนี้ (ไม่ใช่รหัสผ่าน civitai account) เพื่อปลดล็อคการ download model ในเว็บ civitai ที่ต้องมีการ Login เพื่อทำการ download
+    - [วิธีการขอ CivitAI API Keys](/others/civit)
+- ถัดมาให้กดปุ่ม RUN ![](/run.png) ที่อยู่ข้างซ้ายบน
+- ซึ่งหลังจาก RUN สำเร็จแล้วจะได้ผลลัพธ์ตามนี้
+  ![](/comfy_sec_1_completed.png)
+  - โปรแกรม ComfyUI 
+  - model ประเภทต่างๆ (เช่น checkpoint, vae, lora, ...) ลงไปยังตาม folder ของแต่ละประเภทแล้ว หากกรอก url ลงไปยัง DOWNLOAD_LIST_URL
+
+## 2. วิธีการ Download Model เพิ่มเติมลงไปยัง colab
+
+- *หากไม่ต้องการ Download Model เพิ่มเติม สามารถข้ามขั้นตอนนี้ได้เลย
+
+![](/comfy_sec_2.png)
+
+### 2.1 วิธี Download จากเว็บ CivitAI
+
+- หา model ที่น่าสนใจ จาก [เว็บ CivitAI](https://civitai.com/)
+- copy url ของเว็บไซต์ 
+
+![](/comfy_sec_2_1.png)
+
+- วางลงบนช่อง URL:
+![](/comfy_sec_2_1_2.png)
+
+- เลือก Type ให้ถูกตามที่ได้หา Model ไว้
+![](/comfy_sec_2_1_3.png)
+*โปรดระบุ Type ให้ถูกต้องเพื่อให้ model ที่ download มาอยู่ถูก folder ตามประเภทของ model ที่ได้กำหนดไว้
+
+- (ไม่บังคับ) CivitAI API Keys กรอก code จุดนี้ (ไม่ใช่รหัสผ่าน civitai account) เพื่อปลดล็อคการ download model ในเว็บ civitai ที่ต้องมีการ Login เพื่อทำการ download
+  - [วิธีการขอ CivitAI API Keys](/others/civit)
+- หากไม่ได้ใส่ CivitAI API Keys จะไม่สามารถ Download บาง Model ได้เนื่องจากต้อง login จะมี output แบบนี้ 
+
+```
+Cannot Download https://civitai.com/api/download/models/540977
+```
+
+- กดปุ่ม RUN ![](/run.png) ที่อยู่ข้างซ้ายบน ก็จะทำการ download model จาก url ที่ได้กรอกไว้
+
+- copy url ของเว็บไซต์ 
+![](/comfy_sec_2_1_4.png)
+
+- เมื่อ Download สำเร็จจแสดงผลดังนี้ 
+
+![](/comfy_sec_2_1_5.png)
+
+ทุกๆ การ download model สำเร็จ จะมีการเก็บประวัติการ download เอาไว้ใน colab ซึ่งถ้าต้องการเก็บประวัติเอาไว้สามารถกด run Generate Download List URL เพื่อสร้าง link ที่เก็บประวัติการ download ไว้ได้
+
+### 2.2 วิธี Download จากเว็บ Huggingface
+
+- หา model ที่น่าสนใจ จาก [เว็บ Huggingface](https://huggingface.co/models?sort=trending&search=stable+diffusion)
+![](/comfy_sec_2_2_1.png)
+
+- วางลงบนช่อง URL:
+![](/comfy_sec_2_2_2.png)
+
+- เลือก Type ให้ถูกตามที่ได้หา Model ไว้
+![](/comfy_sec_2_1_3.png)
+*โปรดระบุ Type ให้ถูกต้องเพื่อให้ model ที่ download มาอยู่ถูก folder ตามประเภทของ model ที่ได้กำหนดไว้
+
+- กดปุ่ม RUN ![](/run.png) ที่อยู่ข้างซ้ายบน ก็จะทำการ download model จาก url ที่ได้กรอกไว้
+
+![](/comfy_sec_2_2_4.png)
+
+- เมื่อ Download สำเร็จจแสดงผลดังนี้ 
+
+![](/comfy_sec_2_2_5.png)
+
+ทุกๆ การ download model สำเร็จ จะมีการเก็บประวัติการ download เอาไว้ใน colab ซึ่งถ้าต้องการเก็บประวัติเอาไว้สามารถกด run Generate Download List URL เพื่อสร้าง link ที่เก็บประวัติการ download ไว้ได้
+
+## 3. วิธีการ Generate Download List URL
+
+- *หากไม่ต้องการบันทึก Download Model List ด้วยการสร้าง link สามารถข้ามขั้นตอนนี้ได้เลย
+
+![](/comfy_sec_3_1.png)
+
+สร้าง url ที่เก็บประวัติการ download model ต่างๆ เพื่อเก็บไว้ใช้ในครั้งถัดไป
+
+- Title เป็นชื่อหัวข้อ (ไม่จำเป็นต้องกรอก หากอยากจำชื่อง่ายๆ ว่าเป็น link เกี่ยวกับ download model list อะไรสามารถตั้งชื่อไว้ได้)
+- Description เป็นคำอธิบายคร่าวๆ ว่า donwload list นี้มี model อะไรบ้าง 
+- Author ชื่อผู้ใช้ (ตั้งชื่ออะไรก็ได้ ไว้บอกว่าใครเป็นคนสร้างรายการนี้) 
+- isPublic ตั้งค่าการมองเห็น (ติ๊กถูก ✅ หมายถึงเห็นทุกคน ถ้าไม่ได้ติ๊กถูกจะเห็นเฉพาะคนที่มีลิ้งเท่านั้น)
+
+- กดปุ่ม RUN ![](/run.png) เพื่อสร้าง link ที่รวมรายการ download เพื่อเก็บไว้ใช้ในครั้งถัดไป
+
+ผลลัพธ์ที่ได้จะแสดงผลรายการที่ download สำเร็จทั้งหมดพร้อม url ที่ save เก็บไว้ใช้ในการ download model ในครั้งถัดไป
+![](/comfy_sec_3_2.png)
+
+## 4. Start ComfyUI
+
+- กดปุ่ม RUN ![](/run.png) เพื่อทำการ start ComfyUI
+- เมื่อทำการ RUN แล้วจะมี URL พร้อมรหัสผ่าน/ipในการเข้าหน้า ComfyUI
+
+![](/comfy_sec_4_1.png)
+
+- นำ รหัสผ่าน/ip มากรอกที่ช่องนี่้แล้วกด **Click to Submit** ก็จะสามารถเข้าหน้าต่าง ComfyUI
+
+![](/comfy_sec_4_2.png)
+
+หน้าต่าง ComfyUI ที่พร้อมใช้งาน 
+
+![](/comfy_sec_4_3.png)
+
+- เมื่อใช้งานเสร็จแล้วให้ไปที่ colab แล้วกด Disconnect and Delete Runtime
+![](/comfy_sec_4_4.png)

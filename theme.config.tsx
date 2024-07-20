@@ -1,18 +1,24 @@
-import React from 'react'
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import React from "react";
+import { DocsThemeConfig } from "nextra-theme-docs";
 
 const config: DocsThemeConfig = {
-  logo: <span>My Project</span>,
+  useNextSeoProps() {
+    return {
+      titleTemplate: "%s - vjump SD Download List Docs",
+    };
+  },
+  logo: <span style={{ fontWeight: "bold" }}>SD Download List</span>,
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: "https://github.com/vjumpkung/vjump-sd-download-list-docs",
   },
   chat: {
-    link: 'https://discord.com',
+    link: "https://discord.com/users/250567674504019968",
   },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase:
+    "https://github.com/vjumpkung/vjump-sd-download-list-docs",
   footer: {
-    text: 'Nextra Docs Template',
+    text: "vjump colab and SD Download List",
   },
-}
+};
 
-export default config
+export default config;
