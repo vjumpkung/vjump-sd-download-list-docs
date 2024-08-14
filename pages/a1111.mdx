@@ -1,15 +1,22 @@
-# คู่มือการใช้งาน ComfyUI Colab
+# คู่มือการใช้งาน A1111 Colab
 
-## Link เข้าใช้งาน vjumpkung ComfyUI Colab
+## Link เข้าใช้งาน vjumpkung A1111 WebUI Colab
 
-[vjumpkung ComfyUI Colab](https://colab.research.google.com/github/vjumpkung/vjump-sd-webui-colab/blob/main/vjumpkung_comfyui_colab.ipynb)
+[vjumpkung A1111 WebUI Colab](https://colab.research.google.com/github/vjumpkung/vjump-sd-webui-colab/blob/main/vjumpkung_A1111_Stable_Diffusion_WebUI.ipynb)
 
 ## Features
 
-- Save รูป ไว้ที่ Google Drive ทุกรูปที่ได้เจนภาพขึ้นมา ไว้ที่ folder ComfyUIOutput ใน Google Drive
-- มี ComfyUI Manager ในการจัดการ Custom Node เพื่อความสะดวกในการติดตั้ง custom node ที่สะดวกสะบายมากขึ้น
-- รองรับการ download model จาก civitai รวมถึง model ที่ต้องการ login และ huggingface
-- มีเว็บไซต์สำหรับแหล่งรวม model ต่างๆ เพื่อจะได้ download model ทั้งหมดภายใน link เดียว
+- ติดตั้ง Extension เบื้องต้นพร้อมใช้งาน
+  - batchlinks-webui
+  - a1111-sd-webui-tagcomplete
+  - sd-webui-infinite-image-browsing
+  - sd-webui-controlnet
+  - sd-webui-depth-lib
+  - adetailer
+  - sd-webui-reactor
+  - sd-webui-photopea-embed
+  - sd-civitai-browser-plus
+  - ultimate-upscale-for-automatic1111
 
 ## สิ่งที่ต้องการ
 
@@ -17,27 +24,28 @@
 - Colab Pro หรือ Pay As You Go [Link สมัคร Colab Pro](https://colab.research.google.com/signup?utm_source=resource_tab&utm_medium=link&utm_campaign=want_more_resources)
 - **(ไม่บังคับ)** CivitAI API Key (สำหรับ Download Model ที่ต้องมีการ Login)
 
-## 1. ติดตั้ง ComfyUI
+## 1. ติดตั้ง A1111 
 
-![](/comfy_sec_1.png)
+![](/a1111_sec_1_1.png)
 
 - การตั้งค่าของส่วนนี้มี options ดังต่อไปนี้
-  - Save Model ไว้ที่ Google Drive เป็นการ save ตัวโปรแกรมรวมทั้ง model ทั้งหมดที่ได้ download
-  - Update ComfyUI จะเป็นตัวเลือกให้ทำการ Update ComfyUI ให้เป็น version ล่าสุด (จะใช้งานได้ต่อเมื่อ SAVE_MODEL_IN_GOOGLE_DRIVE มีการ ✅ เอาไว้)
+  - Save Model ไว้ที่ Google Drive เป็นการ save ตัวโปรแกรมรวมทั้ง model ทั้งหมดที่ได้ download โดย ✅ ที่ USE_GOOGLE_DRIVE
+  - ช่องติ๊กถูกสำหรับเปิดใช้งาน controlnet
+  - ช่องติ๊กถูกสำหรับ Download Controlnet Model สำหรับ SD1.5
   - ช่องกรอก DOWNLOAD_LIST_URL จะให้กรอก link ที่ได้รวมการ download model ต่างๆ จาก CivitAI หรือ Huggingface เอาไว้ ซึ่งหา link ได้จาก [SD Download List Website](https://vjump-sd-download-list.vjumpkung.dynv6.net/download_list/) หรือ [Link ที่เก็บไว้จากการสร้าง URL ในขั้นตอน Generate Download List URL](/comfy#3-%E0%B8%A7%E0%B8%B4%E0%B8%98%E0%B8%B5%E0%B8%81%E0%B8%B2%E0%B8%A3-generate-download-list-url)
   - (ไม่บังคับ) CivitAI API Keys กรอก CivitAI API Keys เพื่อปลดล็อคการ download model ในเว็บ civitai ที่ต้องมีการ Login เพื่อทำการ download
     - [วิธีการขอ CivitAI API Keys](/others/civit)
 - ถัดมาให้กดปุ่ม RUN ![](/run.png) ที่อยู่ข้างซ้ายบน
 - ซึ่งหลังจาก RUN สำเร็จแล้วจะได้ผลลัพธ์ตามนี้
-  ![](/comfy_sec_1_completed.png)
-  - โปรแกรม ComfyUI 
-  - model ประเภทต่างๆ (เช่น checkpoint, vae, lora, ...) ลงไปยังตาม folder ของแต่ละประเภทแล้ว หากกรอก url ลงไปยัง DOWNLOAD_LIST_URL
+  ![](/a1111_sec_1_2.png)
+  - โปรแกรม Stable Diffusion A1111 WebUI  
+  - model ประเภทต่างๆ ลงไปยังตาม folder ของแต่ละประเภทแล้ว หากกรอก url ลงไปยัง DOWNLOAD_LIST_URL
 
 ## 2. วิธีการ Download Model เพิ่มเติมลงไปยัง colab
 
 - *หากไม่ต้องการ Download Model เพิ่มเติม สามารถข้ามขั้นตอนนี้ได้เลย
 
-![](/comfy_sec_2.png)
+![](/a1111_sec_2_1.png)
 
 ### 2.1 วิธี Download จากเว็บ CivitAI
 
@@ -47,10 +55,10 @@
 ![](/comfy_sec_2_1.png)
 
 - วางลงบนช่อง URL:
-![](/comfy_sec_2_1_2.png)
+![](/a1111_sec_2_2.png)
 
 - เลือก Type ให้ถูกตามที่ได้หา Model ไว้
-![](/comfy_sec_2_1_3.png)
+![](/a1111_sec_2_3.png)
 *โปรดระบุ Type ให้ถูกต้องเพื่อให้ model ที่ download มาอยู่ถูก folder ตามประเภทของ model ที่ได้กำหนดไว้
 
 - (ไม่บังคับ) CivitAI API Keys กรอก CivitAI API Keys เพื่อปลดล็อคการ download model ในเว็บ civitai ที่ต้องมีการ Login เพื่อทำการ download
@@ -73,10 +81,10 @@
 ![](/comfy_sec_2_2_1.png)
 
 - วางลงบนช่อง URL:
-![](/comfy_sec_2_2_2.png)
+![](/a1111_sec_2_4.png)
 
 - เลือก Type ให้ถูกตามที่ได้หา Model ไว้
-![](/comfy_sec_2_1_3.png)
+![](/a1111_sec_2_3.png)
 *โปรดระบุ Type ให้ถูกต้องเพื่อให้ model ที่ download มาอยู่ถูก folder ตามประเภทของ model ที่ได้กำหนดไว้
 
 - กดปุ่ม RUN ![](/run.png) ที่อยู่ข้างซ้ายบน ก็จะทำการ download model จาก url ที่ได้กรอกไว้
@@ -107,16 +115,16 @@
 ผลลัพธ์ที่ได้จะแสดงผลรายการที่ download สำเร็จทั้งหมดพร้อม url ที่ save เก็บไว้ใช้ในการ download model ในครั้งถัดไป
 ![](/comfy_sec_3_2.png)
 
-## 4. Start ComfyUI
+## 4. Start Stable Diffusion WebUI (A1111)
 
-- กดปุ่ม RUN ![](/run.png) เพื่อทำการ start ComfyUI
-- เมื่อทำการ RUN แล้วจะมี URL ที่สามารถเข้าใช้งาน ComfyUI 
+- กดปุ่ม RUN ![](/run.png) เพื่อทำการ start A1111
+- เมื่อทำการ RUN แล้วจะมี URL ที่สามารถเข้าใช้งาน A1111
 
-![](/comfy_sec_4_1.png)
+![](/a1111_sec_4_1.png)
 
-หน้าต่าง ComfyUI ที่พร้อมใช้งาน 
+หน้าต่าง Stable Diffusion WebUI (A1111) ที่พร้อมใช้งาน 
 
-![](/comfy_sec_4_3.png)
+![](/a1111_sec_4_2.png)
 
 - เมื่อใช้งานเสร็จแล้วให้ไปที่ colab แล้วกด Disconnect and Delete Runtime
 ![](/comfy_sec_4_4.png)
